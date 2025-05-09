@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop trendy ladies' suits and abayas in Karachi. Affordable, stylish, and perfect for every occasion!">
+    <title>Anmol Clothing</title>
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            font-size: 18px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #000000;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typewriter 2s steps(40) 0.5s 1 normal both;
+        }
+        header h1:hover {
+            transform: scale(1.05);
+        }
+        header p {
+            font-size: 1.5rem;
+        }
+        nav {
+            background-color: #333333;
+            padding: 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: #FFFFFF;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-size: 1.4rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #FFD700;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #FFD700;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        .banner {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeSlideIn 1s ease-out forwards;
+        }
+        .banner-top {
+            width: 100vw;
+            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeSlideIn 1s ease-out forwards;
+        }
+        .banner-abaya, .banner-bottom {
+            width: 100vw;
+            margin: 0;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            overflow: hidden;
+        }
+        .banner-top .banner-slider {
+            display: flex;
+            width: 300%;
+            animation: slide 6s infinite;
+        }
+        .banner-bottom .banner-slider, .banner-abaya .banner-slider {
+            display: flex;
+            width: 400%;
+            animation: slide 8s infinite;
+        }
+        .banner-top img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border: none;
+        }
+        .banner-abaya img, .banner-bottom img {
+            width: 100vw;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border: none;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33.33% { transform: translateX(0); }
+            33.34% { transform: translateX(-100vw); }
+            66.66% { transform: translateX(-100vw); }
+            66.67% { transform: translateX(-200vw); }
+            100% { transform: translateX(-200vw); }
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .product {
+            background-color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: scaleUp 0.5s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        .product .product-slider {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+        .product .product-slider .slider-images {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            animation: productSlide 8s infinite;
+        }
+        .product .product-slider img {
+            width: 25%;
+            height: auto;
+            object-fit: contain;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .product .product-slider img:hover {
+            transform: scale(1.1) translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes productSlide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(0); }
+            25.01% { transform: translateX(-25%); }
+            50% { transform: translateX(-25%); }
+            50.01% { transform: translateX(-50%); }
+            75% { transform: translateX(-50%); }
+            75.01% { transform: translateX(-75%); }
+            100% { transform: translateX(-75%); }
+        }
+        .product .zoomed-image {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 300px;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+            z-index: 10;
+            background-size: 200%;
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .product h3 {
+            font-family: 'Poppins', sans-serif;
+            margin: 0.75rem 0;
+            font-size: 1.6rem;
+            color: #000000;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: block;
+            width: 100%;
+            animation: typewriter 2s linear 0.7s 1 normal both;
+        }
+        .product h3:hover {
+            transform: scale(1.05);
+        }
+        .product p.price {
+            color: #333333;
+            font-weight: bold;
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+        }
+        .product .size-options {
+            display: none;
+            margin: 0.5rem 0;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .product .size-options.show {
+            display: flex;
+        }
+        .product .size-options span {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border: 2px solid #333333;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #000000;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .product .size-options span.selected {
+            background-color: red;
+            color: white;
+            border-color: red;
+        }
+        .product button {
+            background-color: #000000;
+            color: #FFFFFF;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            transition: background-color 0.3s ease;
+        }
+        .product button:hover {
+            background-color: #333333;
+        }
+        .product button::before {
+            content: '📱';
+        }
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: #000000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: typewriter 2s steps(40) 0.9s 1 normal both, fadeZoom 0.8s ease-out forwards;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .section h2:hover {
+            transform: scale(1.05);
+        }
+        .section p {
+            font-size: 1.3rem;
+            color: #333333;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeZoom 0.8s ease-out 0.2s forwards;
+        }
+        #contact p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        #contact p:nth-child(2) { animation-delay: 0.1s; }
+        #contact p:nth-child(3) { animation-delay: 0.2s; }
+        #contact p:nth-child(4) { animation-delay: 0.3s; }
+        footer {
+            background-color: #000000;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .whatsapp-float img {
+            width: 50px;
+            height: 50px;
+            border: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease-out;
+        }
+        .modal-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: #000000;
+            margin: 0 0 1rem;
+        }
+        .modal-content p {
+            font-size: 1.2rem;
+            color: #333333;
+            margin: 0.5rem 0;
+        }
+        .modal-content .instructions {
+            font-size: 1.1rem;
+            color: #555555;
+            margin-bottom: 1rem;
+        }
+        .modal-content .size-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .modal-content .size-options span {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border: 2px solid #333333;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #000000;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .modal-content .size-options span.selected {
+            background-color: rgb(8, 8, 4);
+            color: white;
+            border-color: rgb(212, 200, 200);
+        }
+        .modal-content .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333333;
+        }
+        .modal-content .order-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        .modal-content .order-whatsapp {
+            background-color: #25D366;
+            color: #FFFFFF;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        .modal-content .order-whatsapp:hover {
+            background-color: #1DA851;
+        }
+        @keyframes fadeSlideIn {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeZoom {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes scaleUp {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product:nth-child(1) { animation-delay: 0.1s; }
+        .product:nth-child(2) { animation-delay: 0.2s; }
+        .product:nth-child(3) { animation-delay: 0.3s; }
+        .product:nth-child(4) { animation-delay: 0.4s; }
+        .product:nth-child(5) { animation-delay: 0.5s; }
+        .product:nth-child(6) { animation-delay: 0.6s; }
+        .product:nth-child(7) { animation-delay: 0.7s; }
+        .product:nth-child(8) { animation-delay: 0.8s; }
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.75rem 0;
+                font-size: 1.2rem;
+            }
+            .banner-top {
+                height: 100vh;
+            }
+            .banner-top img {
+                height: 100vh;
+            }
+            .banner-abaya img, .banner-bottom img {
+                width: 100vw;
+                height: auto;
+                max-height: 300px;
+            }
+            .products {
+                grid-template-columns: 1fr;
+            }
+            .product .product-slider {
+                height: auto;
+                max-height: 300px;
+            }
+            .product .product-slider img {
+                height: auto;
+                object-fit: contain;
+            }
+            .product .zoomed-image {
+                display: none !important;
+            }
+            .product h3 {
+                font-size: 1.4rem;
+                word-wrap: break-word;
+            }
+            .product p.price {
+                font-size: 1.4rem;
+            }
+            .product .size-options span {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 1rem;
+            }
+            .product button {
+                font-size: 1.1rem;
+            }
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            .modal-content {
+                padding: 1.5rem;
+            }
+            .modal-content h3 {
+                font-size: 1.5rem;
+            }
+            .modal-content p {
+                font-size: 1rem;
+            }
+            .modal-content .instructions {
+                font-size: 0.9rem;
+            }
+            .modal-content .size-options span {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 1rem;
+            }
+            .modal-content .order-buttons {
+                flex-direction: column;
+            }
+            .modal-content .order-whatsapp {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+        }
+        /* Custom CSS for Magnific Popup */
+        .mfp-img {
+            max-width: 90vw !important;
+            max-height: 90vh !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: contain !important;
+            margin: auto;
+        }
+        .mfp-figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+        .mfp-bottom-bar {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Anmol Clothing</h1>
+        <p>Elegant and stylish suits for every occasion!</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#abaya">Abaya</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <div id="home" class="section">
+            <div class="banner banner-top">
+                <div class="banner-slider">
+                    <img src="images/banner1.jpg" alt="Banner 1">
+                    <img src="images/bannerslides2.jpg" alt="Banner 2">
+                    <img src="images/bannnerslides3.jpg" alt="Banner 3">
+                </div>
+            </div>
+            <h2>Welcome to my page</h2>
+            <p>Discover our exclusive collection of ladies' suits, crafted with elegance and style!</p>
+        </div>
+        <div id="products" class="section">
+            <h2>Our Collection</h2>
+            <div class="products">
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/suits1.jpg" class="gallery"><img src="images/suits1.jpg" alt="Chaffon Embroidered Suit 1" class="zoomable"></a>
+                                <a href="images/suits2.jpg" class="gallery"><img src="images/suits2.jpg" alt="Chaffon Embroidered Suit 2" class="zoomable"></a>
+                                <a href="images/suits3.jpg" class="gallery"><img src="images/suits3.jpg" alt="Chaffon Embroidered Suit 3" class="zoomable"></a>
+                                <a href="images/suits4.jpg" class="gallery"><img src="images/suits4.jpg" alt="Chaffon Embroidered Suit 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Chaffon Embroidered</h3>
+                    <p class="price">Rs:2999</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Chaffon Embroidered', 2999, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/heavy1.jpg" class="gallery"><img src="images/heavy1.jpg" alt="Special Fancy Dress 1" class="zoomable"></a>
+                                <a href="images/heavy2.jpg" class="gallery"><img src="images/heavy2.jpg" alt="Special Fancy Dress 2" class="zoomable"></a>
+                                <a href="images/heavy3.jpg" class="gallery"><img src="images/heavy3.jpg" alt="Special Fancy Dress 3" class="zoomable"></a>
+                                <a href="images/heavy4.jpg" class="gallery"><img src="images/heavy4.jpg" alt="Special Fancy Dress 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Special Fancy Dress</h3>
+                    <p class="price">Rs:3500</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Special Fancy Dress', 3500, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/farshi1.jpg" class="gallery"><img src="images/farshi1.jpg" alt="Special Farshi Shalwar 1" class="zoomable"></a>
+                                <a href="images/farshi2.jpg" class="gallery"><img src="images/farshi2.jpg" alt="Special Farshi Shalwar 2" class="zoomable"></a>
+                                <a href="images/farshi3.jpg" class="gallery"><img src="images/farshi3.jpg" alt="Special Farshi Shalwar 3" class="zoomable"></a>
+                                <a href="images/farshi4.jpg" class="gallery"><img src="images/farshi4.jpg" alt="Special Farshi Shalwar 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Special Farshi Shalwar</h3>
+                    <p class="price">Rs:2999</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Special Farshi Shalwar', 2999, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/3piece1.jpg" class="gallery"><img src="images/3piece1.jpg" alt="Green Farshi Shalwar 1" class="zoomable"></a>
+                                <a href="images/3piece2.jpg" class="gallery"><img src="images/3piece2.jpg" alt="Green Farshi Shalwar 2" class="zoomable"></a>
+                                <a href="images/3piece3.jpg" class="gallery"><img src="images/3piece3.jpg" alt="Green Farshi Shalwar 3" class="zoomable"></a>
+                                <a href="images/3piece4.jpg" class="gallery"><img src="images/3piece4.jpg" alt="Green Farshi Shalwar 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Green Farshi Shalwar</h3>
+                    <p class="price">Rs:2999</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Green Farshi Shalwar', 2999, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/sharara.jpg" class="gallery"><img src="images/sharara.jpg" alt="Sharara Suit 1" class="zoomable"></a>
+                                <a href="images/sharara2.jpg" class="gallery"><img src="images/sharara2.jpg" alt="Sharara Suit 2" class="zoomable"></a>
+                                <a href="images/sharara3.jpg" class="gallery"><img src="images/sharara3.jpg" alt="Sharara Suit 3" class="zoomable"></a>
+                                <a href="images/sharara4.jpg" class="gallery"><img src="images/sharara4.jpg" alt="Sharara Suit 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Sharara Suit</h3>
+                    <p class="price">Rs:3499</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Sharara Suit', 3499, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/churidar.jpg" class="gallery"><img src="images/churidar.jpg" alt="Churidar Suit 1" class="zoomable"></a>
+                                <a href="images/churidar2.jpg" class="gallery"><img src="images/churidar2.jpg" alt="Churidar Suit 2" class="zoomable"></a>
+                                <a href="images/churidar3.jpg" class="gallery"><img src="images/churidar3.jpg" alt="Churidar Suit 3" class="zoomable"></a>
+                                <a href="images/churidar4.jpg" class="gallery"><img src="images/churidar4.jpg" alt="Churidar Suit 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Churidar Suit</h3>
+                    <p class="price">Rs:2799</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Churidar Suit', 2799, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/straight.jpg" class="gallery"><img src="images/straight.jpg" alt="Straight Suit 1" class="zoomable"></a>
+                                <a href="images/straight2.jpg" class="gallery"><img src="images/straight2.jpg" alt="Straight Suit 2" class="zoomable"></a>
+                                <a href="images/straight3.jpg" class="gallery"><img src="images/straight3.jpg" alt="Straight Suit 3" class="zoomable"></a>
+                                <a href="images/straight4.jpg" class="gallery"><img src="images/straight4.jpg" alt="Straight Suit 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Straight Suit</h3>
+                    <p class="price">Rs:2299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Straight Suit', 2299, this, 'products')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/dhoti.jpg" class="gallery"><img src="images/dhoti.jpg" alt="Dhoti Suit 1" class="zoomable"></a>
+                                <a href="images/dhoti2.jpg" class="gallery"><img src="images/dhoti2.jpg" alt="Dhoti Suit 2" class="zoomable"></a>
+                                <a href="images/dhoti3.jpg" class="gallery"><img src="images/dhoti3.jpg" alt="Dhoti Suit 3" class="zoomable"></a>
+                                <a href="images/dhoti4.jpg" class="gallery"><img src="images/dhoti4.jpg" alt="Dhoti Suit 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Dhoti Suit</h3>
+                    <p class="price">Rs:3999</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Dhoti Suit', 3999, this, 'products')">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="banner banner-bottom">
+            <div class="banner-slider">
+                <img src="images/green1.jpg" alt="Banner 1">
+                <img src="images/green2.jpg" alt="Banner 2">
+                <img src="images/green3.jpg" alt="Banner 3">
+                <img src="images/greeb4.jpg" alt="Banner 4">
+            </div>
+        </div>
+        <div id="abaya" class="section">
+            <h2>Abaya Collection</h2>
+            <div class="banner banner-abaya">
+                <img src="images/staler.jpg" alt="Abaya Banner">
+            </div>
+            <div class="products">
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/abaya1.jpg" class="gallery"><img src="images/abaya1.jpg" alt="Lavender Abaya with Stoller 1" class="zoomable"></a>
+                                <a href="images/abaya2.jpg" class="gallery"><img src="images/abaya2.jpg" alt="Lavender Abaya with Stoller 2" class="zoomable"></a>
+                                <a href="images/abaya3.jpg" class="gallery"><img src="images/abaya3.jpg" alt="Lavender Abaya with Stoller 3" class="zoomable"></a>
+                                <a href="images/abaya4.jpg" class="gallery"><img src="images/abaya4.jpg" alt="Lavender Abaya with Stoller 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Lavender Abaya with Stoller</h3>
+                    <p class="price">Rs:2900</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Lavender Abaya with Stoller', 2900, this, 'abaya')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/black1.jpg" class="gallery"><img src="images/black1.jpg" alt="Black Abaya with Stoller 1" class="zoomable"></a>
+                                <a href="images/black2.jpg" class="gallery"><img src="images/black2.jpg" alt="Black Abaya with Stoller 2" class="zoomable"></a>
+                                <a href="images/black3.jpg" class="gallery"><img src="images/black3.jpg" alt="Black Abaya with Stoller 3" class="zoomable"></a>
+                                <a href="images/black4.jpg" class="gallery"><img src="images/black4.jpg" alt="Black Abaya with Stoller 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Black Abaya with Stoller</h3>
+                    <p class="price">Rs:2900</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Black Abaya with Stoller', 2900, this, 'abaya')">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider">
+                            <div class="slider-images">
+                                <a href="images/golden1.jpg" class="gallery"><img src="images/golden1.jpg" alt="Abaya with Stoller 1" class="zoomable"></a>
+                                <a href="images/golden2.jpg" class="gallery"><img src="images/golden2.jpg" alt="Abaya with Stoller 2" class="zoomable"></a>
+                                <a href="images/golden3.jpg" class="gallery"><img src="images/golden3.jpg" alt="Abaya with Stoller 3" class="zoomable"></a>
+                                <a href="images/golden4.jpg" class="gallery"><img src="images/golden4.jpg" alt="Abaya with Stoller 4" class="zoomable"></a>
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Abaya with Stoller</h3>
+                    <p class="price">Rs:2900</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Abaya with Stoller', 2900, this, 'abaya')">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>Email: anmolclothing6@gmail.com</p>
+            <p>Phone: +92 3446086595</p>
+            <p>WhatsApp: <a href="https://wa.me/923446086595" target="_blank">Chat with us</a></p>
+            <p>Instagram (_anmolclothing): <a href="https://www.instagram.com/_anmolclothing" target="_blank">Follow us</a></p>
+        </div>
+    </div>
+    <a href="https://wa.me/923446086595" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h3 id="modalProductName"></h3>
+            <p id="modalProductPrice"></p>
+            <p class="instructions">Select your size and order via WhatsApp</p>
+            <div class="size-options" id="modalSizeOptions">
+                <span data-size="S">S</span>
+                <span data-size="M">M</span>
+                <span data-size="L">L</span>
+            </div>
+            <p id="modalProductSize"></p>
+            <div class="order-buttons">
+                <button class="order-whatsapp" onclick="orderViaWhatsApp()">Send WhatsApp Order</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Anmol clothing. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script>
+        let currentProduct = { name: '', price: 0, size: '', button: null, section: '' };
+
+        function showOrderModal(name, price, button, section) {
+            const sizeOptions = button.parentElement.querySelector('.size-options');
+            const selectedSize = sizeOptions.querySelector('span.selected');
+            const size = selectedSize ? selectedSize.dataset.size : 'Not selected';
+
+            currentProduct = { name: name.trim(), price, size, button, section };
+
+            document.getElementById('modalProductName').textContent = name.trim();
+            document.getElementById('modalProductPrice').textContent = `Price: Rs${price}`;
+            document.getElementById('modalProductSize').textContent = `Size: ${size}`;
+
+            const modalSizeOptions = document.getElementById('modalSizeOptions');
+            modalSizeOptions.querySelectorAll('span').forEach(span => {
+                span.classList.remove('selected');
+                if (span.dataset.size === size) {
+                    span.classList.add('selected');
+                }
+            });
+
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function orderViaWhatsApp() {
+            const { name, price, size, section } = currentProduct;
+            if (size === 'Not selected') {
+                alert('Please select a size before ordering.');
+                return;
+            }
+            const baseUrl = window.location.origin || 'https://yourwebsite.com';
+            const productUrl = `${baseUrl}/index.html#${section}`;
+            const message = `Hi, I want to order ${name} for Rs${price}. Size: ${size}. Product: ${productUrl}. Please provide further details.`;
+            const whatsappNumber = "923446086595";
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+            setTimeout(() => alert('WhatsApp order shuru ho gaya! WhatsApp mein message complete karo.'), 500);
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        document.querySelector('.close').addEventListener('click', closeModal);
+
+        window.addEventListener('click', (event) => {
+            if (event.target === document.getElementById('orderModal')) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('modalSizeOptions').querySelectorAll('span').forEach(span => {
+            span.addEventListener('click', () => {
+                document.getElementById('modalSizeOptions').querySelectorAll('span').forEach(s => s.classList.remove('selected'));
+                span.classList.add('selected');
+                currentProduct.size = span.dataset.size;
+                document.getElementById('modalProductSize').textContent = `Size: ${currentProduct.size}`;
+            });
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1);
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        document.querySelectorAll('.product').forEach(product => {
+            const slider = product.querySelector('.product-slider');
+            const sizeOptions = product.querySelector('.size-options');
+            const sizeSpans = sizeOptions.querySelectorAll('span');
+
+            slider.addEventListener('click', () => {
+                sizeOptions.classList.toggle('show');
+            });
+
+            sizeSpans.forEach(span => {
+                span.addEventListener('click', () => {
+                    sizeSpans.forEach(s => s.classList.remove('selected'));
+                    span.classList.add('selected');
+                });
+            });
+        });
+
+        const sections = document.querySelectorAll('.section, .banner');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.querySelectorAll('h2, p, .product').forEach(child => {
+                        child.style.animationPlayState = 'running';
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('.zoomable').forEach(img => {
+            const zoomContainer = img.closest('.zoom-container');
+            const zoomedImage = zoomContainer.querySelector('.zoomed-image');
+            zoomedImage.style.backgroundImage = `url(${img.src})`;
+
+            img.addEventListener('mousemove', (e) => {
+                zoomedImage.style.display = 'block';
+                const rect = img.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xPercent = (x / img.width) * 100;
+                const yPercent = (y / img.height) * 100;
+                zoomedImage.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+            });
+
+            img.addEventListener('mouseleave', () => {
+                zoomedImage.style.display = 'none';
+            });
+        });
+
+        // Initialize Magnific Popup for each product slider
+        document.querySelectorAll('.product-slider').forEach(slider => {
+            $(slider).magnificPopup({
+                delegate: 'a.gallery',
+                type: 'image',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0,1]
+                },
+                image: {
+                    verticalFit: true,
+                    titleSrc: function(item) {
+                        return item.el.find('img').attr('alt');
+                    }
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300
+                }
+            });
+        });
+    </script>
+</body>
+</html>
