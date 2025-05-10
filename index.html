@@ -484,14 +484,16 @@
                 max-height: 300px;
             }
             .products {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
             }
             .product .product-slider {
                 height: auto;
-                max-height: 300px;
+                max-height: 250px;
             }
             .product .product-slider img {
                 height: auto;
+                max-height: 250px;
                 object-fit: contain;
             }
             .product .zoomed-image {
@@ -676,85 +678,85 @@
                     <div class="zoom-container">
                         <div class="product-slider">
                             <div class="slider-images">
-                                <a href="images/sharara.jpg" class="gallery"><img src="images/sharara.jpg" alt="Sharara Suit 1" class="zoomable"></a>
-                                <a href="images/sharara2.jpg" class="gallery"><img src="images/sharara2.jpg" alt="Sharara Suit 2" class="zoomable"></a>
-                                <a href="images/sharara3.jpg" class="gallery"><img src="images/sharara3.jpg" alt="Sharara Suit 3" class="zoomable"></a>
-                                <a href="images/sharara4.jpg" class="gallery"><img src="images/sharara4.jpg" alt="Sharara Suit 4" class="zoomable"></a>
+                                <a href="images/frock1.jpg" class="gallery"><img src="images/frock1.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/frock2.jpg" class="gallery"><img src="images/frock2.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/frock3.jpg" class="gallery"><img src="images/frock3.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/frock4.jpg" class="gallery"><img src="images/frock4.jpg" alt="Frock" class="zoomable"></a>
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Sharara Suit</h3>
-                    <p class="price">Rs:3499</p>
+                    <h3>Frock</h3>
+                    <p class="price">Rs:1999</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Sharara Suit', 3499, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Frock', 1999, this, 'products')">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
                         <div class="product-slider">
                             <div class="slider-images">
-                                <a href="images/churidar.jpg" class="gallery"><img src="images/churidar.jpg" alt="Churidar Suit 1" class="zoomable"></a>
-                                <a href="images/churidar2.jpg" class="gallery"><img src="images/churidar2.jpg" alt="Churidar Suit 2" class="zoomable"></a>
-                                <a href="images/churidar3.jpg" class="gallery"><img src="images/churidar3.jpg" alt="Churidar Suit 3" class="zoomable"></a>
-                                <a href="images/churidar4.jpg" class="gallery"><img src="images/churidar4.jpg" alt="Churidar Suit 4" class="zoomable"></a>
+                                <a href="images/Wfrock1.jpg" class="gallery"><img src="images/Wfrock1.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/Wfrock2.jpg" class="gallery"><img src="images/Wfrock2.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/Wfrock3.jpg" class="gallery"><img src="images/Wfrock3.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/Wfrock4.jpg" class="gallery"><img src="images/Wfrock4.jpg" alt="Frock" class="zoomable"></a>
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Churidar Suit</h3>
-                    <p class="price">Rs:2799</p>
+                    <h3>Frock</h3>
+                    <p class="price">Rs:1999</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Churidar Suit', 2799, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Frock', 1999, this, 'products')">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
                         <div class="product-slider">
                             <div class="slider-images">
-                                <a href="images/straight.jpg" class="gallery"><img src="images/straight.jpg" alt="Straight Suit 1" class="zoomable"></a>
-                                <a href="images/straight2.jpg" class="gallery"><img src="images/straight2.jpg" alt="Straight Suit 2" class="zoomable"></a>
-                                <a href="images/straight3.jpg" class="gallery"><img src="images/straight3.jpg" alt="Straight Suit 3" class="zoomable"></a>
-                                <a href="images/straight4.jpg" class="gallery"><img src="images/straight4.jpg" alt="Straight Suit 4" class="zoomable"></a>
+                                <a href="images/mirror1.jpg" class="gallery"><img src="images/mirror1.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/mirror2.jpg" class="gallery"><img src="images/mirror2.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/mirror3.jpg" class="gallery"><img src="images/mirror3.jpg" alt="Frock" class="zoomable"></a>
+                                <a href="images/mirror4.jpg" class="gallery"><img src="images/mirror4.jpg" alt="Frock" class="zoomable"></a>
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Straight Suit</h3>
-                    <p class="price">Rs:2299</p>
+                    <h3>Frock</h3>
+                    <p class="price">Rs:1999</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Straight Suit', 2299, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Frock', 1999, this, 'products')">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
                         <div class="product-slider">
                             <div class="slider-images">
-                                <a href="images/dhoti.jpg" class="gallery"><img src="images/dhoti.jpg" alt="Dhoti Suit 1" class="zoomable"></a>
-                                <a href="images/dhoti2.jpg" class="gallery"><img src="images/dhoti2.jpg" alt="Dhoti Suit 2" class="zoomable"></a>
-                                <a href="images/dhoti3.jpg" class="gallery"><img src="images/dhoti3.jpg" alt="Dhoti Suit 3" class="zoomable"></a>
-                                <a href="images/dhoti4.jpg" class="gallery"><img src="images/dhoti4.jpg" alt="Dhoti Suit 4" class="zoomable"></a>
+                                <a href="images/special1.jpg" class="gallery"><img src="images/special1.jpg" alt="Special Frock" class="zoomable"></a>
+                                <a href="images/special2.jpg" class="gallery"><img src="images/special2.jpg" alt="Special Frock" class="zoomable"></a>
+                                <a href="images/special3.jpg" class="gallery"><img src="images/special3.jpg" alt="Special Frock" class="zoomable"></a>
+                                <a href="images/special4.jpg" class="gallery"><img src="images/special4.jpg" alt="Special Frock" class="zoomable"></a>
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Dhoti Suit</h3>
-                    <p class="price">Rs:3999</p>
+                    <h3>Special Frock</h3>
+                    <p class="price">Rs:1999</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Dhoti Suit', 3999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Special Frock', 1999, this, 'products')">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -763,7 +765,7 @@
                 <img src="images/green1.jpg" alt="Banner 1">
                 <img src="images/green2.jpg" alt="Banner 2">
                 <img src="images/green3.jpg" alt="Banner 3">
-                <img src="images/greeb4.jpg" alt="Banner 4">
+                <img src="images/green4.jpg" alt="Banner 4">
             </div>
         </div>
         <div id="abaya" class="section">
