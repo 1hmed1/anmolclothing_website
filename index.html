@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shop trendy ladies' suits and abayas in Karachi. Affordable, stylish, and perfect for every occasion!">
-    <title>Anmol Clothing</title>
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <title>Ladies Suit Boutique</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
-        * {
-            box-sizing: border-box;
-        }
 
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +15,6 @@
             background-color: #FFFFFF;
             font-size: 18px;
             line-height: 1.6;
-            overflow-x: hidden;
         }
         header {
             background-color: #000000;
@@ -92,7 +85,6 @@
         .banner-top {
             width: 100vw;
             height: 100vh;
-            min-height: 100vh;
             margin: 0;
             position: relative;
             overflow: hidden;
@@ -163,11 +155,11 @@
         }
         .product .product-slider {
             width: 100%;
-            height: auto;
-            max-height: 300px;
+            height: 300px;
             overflow: hidden;
             position: relative;
             border-radius: 10px;
+            cursor: pointer;
         }
         .product .product-slider .slider-images {
             display: flex;
@@ -177,10 +169,9 @@
         }
         .product .product-slider img {
             width: 25%;
-            height: auto;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
             border: none;
-            cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -194,7 +185,7 @@
             25.01% { transform: translateX(-25%); }
             50% { transform: translateX(-25%); }
             50.01% { transform: translateX(-50%); }
-            75% { transform: translateX(-50%); }
+            75% { transform: translateX(-50); }
             75.01% { transform: translateX(-75%); }
             100% { transform: translateX(-75%); }
         }
@@ -313,6 +304,7 @@
         #contact p:nth-child(2) { animation-delay: 0.1s; }
         #contact p:nth-child(3) { animation-delay: 0.2s; }
         #contact p:nth-child(4) { animation-delay: 0.3s; }
+        #contact p:nth-child(5) { animation-delay: 0.4s; }
         footer {
             background-color: #000000;
             color: #FFFFFF;
@@ -332,7 +324,8 @@
             height: 50px;
             border: none;
         }
-        .modal {
+        /* Modal Styles */
+        .modal, .product-gallery-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -344,11 +337,11 @@
             justify-content: center;
             align-items: center;
         }
-        .modal-content {
+        .modal-content, .product-gallery-modal-content {
             background-color: #FFFFFF;
             padding: 2rem;
             border-radius: 10px;
-            max-width: 400px;
+            max-width: 90%;
             width: 90%;
             text-align: center;
             position: relative;
@@ -395,7 +388,7 @@
             color: white;
             border-color: rgb(212, 200, 200);
         }
-        .modal-content .close {
+        .modal-content .close, .product-gallery-modal-content .close {
             position: absolute;
             top: 10px;
             right: 15px;
@@ -420,6 +413,44 @@
         }
         .modal-content .order-whatsapp:hover {
             background-color: #1DA851;
+        }
+        .product-gallery-modal-content .gallery-images {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .product-gallery-modal-content .gallery-images img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .product-gallery-modal-content .gallery-images img.active {
+            opacity: 1;
+        }
+        .product-gallery-modal-content .nav-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .product-gallery-modal-content .nav-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #FFFFFF;
+            border: none;
+            padding: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product-gallery-modal-content .nav-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
         @keyframes fadeSlideIn {
             0% { opacity: 0; transform: translateX(-50px); }
@@ -473,10 +504,10 @@
                 font-size: 1.2rem;
             }
             .banner-top {
-                height: 100vh;
+                height: 50vh;
             }
             .banner-top img {
-                height: 100vh;
+                height: 50vh;
             }
             .banner-abaya img, .banner-bottom img {
                 width: 100vw;
@@ -484,17 +515,13 @@
                 max-height: 300px;
             }
             .products {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1rem;
+                grid-template-columns: 1fr;
             }
             .product .product-slider {
-                height: auto;
-                max-height: 250px;
+                height: 300px;
             }
             .product .product-slider img {
-                height: auto;
-                max-height: 250px;
-                object-fit: contain;
+                height: 300px;
             }
             .product .zoomed-image {
                 display: none !important;
@@ -518,7 +545,7 @@
             .section h2 {
                 font-size: 1.8rem;
             }
-            .modal-content {
+            .modal-content, .product-gallery-modal-content {
                 padding: 1.5rem;
             }
             .modal-content h3 {
@@ -543,24 +570,13 @@
                 padding: 0.5rem 1rem;
                 font-size: 1rem;
             }
-        }
-        /* Custom CSS for Magnific Popup */
-        .mfp-img {
-            max-width: 90vw !important;
-            max-height: 90vh !important;
-            width: auto !important;
-            height: auto !important;
-            object-fit: contain !important;
-            margin: auto;
-        }
-        .mfp-figure {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #000;
-        }
-        .mfp-bottom-bar {
-            text-align: center;
+            .product-gallery-modal-content .gallery-images {
+                height: 300px;
+            }
+            .product-gallery-modal-content .nav-buttons button {
+                padding: 0.5rem;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -592,12 +608,12 @@
             <div class="products">
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/suits1.jpg" class="gallery"><img src="images/suits1.jpg" alt="Chaffon Embroidered Suit 1" class="zoomable"></a>
-                                <a href="images/suits2.jpg" class="gallery"><img src="images/suits2.jpg" alt="Chaffon Embroidered Suit 2" class="zoomable"></a>
-                                <a href="images/suits3.jpg" class="gallery"><img src="images/suits3.jpg" alt="Chaffon Embroidered Suit 3" class="zoomable"></a>
-                                <a href="images/suits4.jpg" class="gallery"><img src="images/suits4.jpg" alt="Chaffon Embroidered Suit 4" class="zoomable"></a>
+                                <img src="images/suits1.jpg" alt="Chaffon Embroidered Suit 1" class="zoomable">
+                                <img src="images/suits2.jpg" alt="Chaffon Embroidered Suit 2" class="zoomable">
+                                <img src="images/suits3.jpg" alt="Chaffon Embroidered Suit 3" class="zoomable">
+                                <img src="images/suits4.jpg" alt="Chaffon Embroidered Suit 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -609,16 +625,16 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Chaffon Embroidered', 2999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Chaffon Embroidered', 2999, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/heavy1.jpg" class="gallery"><img src="images/heavy1.jpg" alt="Special Fancy Dress 1" class="zoomable"></a>
-                                <a href="images/heavy2.jpg" class="gallery"><img src="images/heavy2.jpg" alt="Special Fancy Dress 2" class="zoomable"></a>
-                                <a href="images/heavy3.jpg" class="gallery"><img src="images/heavy3.jpg" alt="Special Fancy Dress 3" class="zoomable"></a>
-                                <a href="images/heavy4.jpg" class="gallery"><img src="images/heavy4.jpg" alt="Special Fancy Dress 4" class="zoomable"></a>
+                                <img src="images/heavy1.jpg" alt="Special Fancy Dress 1" class="zoomable">
+                                <img src="images/heavy2.jpg" alt="Special Fancy Dress 2" class="zoomable">
+                                <img src="images/heavy3.jpg" alt="Special Fancy Dress 3" class="zoomable">
+                                <img src="images/heavy4.jpg" alt="Special Fancy Dress 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -630,16 +646,16 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Special Fancy Dress', 3500, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Special Fancy Dress', 3500, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/farshi1.jpg" class="gallery"><img src="images/farshi1.jpg" alt="Special Farshi Shalwar 1" class="zoomable"></a>
-                                <a href="images/farshi2.jpg" class="gallery"><img src="images/farshi2.jpg" alt="Special Farshi Shalwar 2" class="zoomable"></a>
-                                <a href="images/farshi3.jpg" class="gallery"><img src="images/farshi3.jpg" alt="Special Farshi Shalwar 3" class="zoomable"></a>
-                                <a href="images/farshi4.jpg" class="gallery"><img src="images/farshi4.jpg" alt="Special Farshi Shalwar 4" class="zoomable"></a>
+                                <img src="images/farshi1.jpg" alt="Special Farshi Shalwar 1" class="zoomable">
+                                <img src="images/farshi2.jpg" alt="Special Farshi Shalwar 2" class="zoomable">
+                                <img src="images/farshi3.jpg" alt="Special Farshi Shalwar 3" class="zoomable">
+                                <img src="images/farshi4.jpg" alt="Special Farshi Shalwar 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -651,16 +667,16 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Special Farshi Shalwar', 2999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Special Farshi Shalwar', 2999, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/3piece1.jpg" class="gallery"><img src="images/3piece1.jpg" alt="Green Farshi Shalwar 1" class="zoomable"></a>
-                                <a href="images/3piece2.jpg" class="gallery"><img src="images/3piece2.jpg" alt="Green Farshi Shalwar 2" class="zoomable"></a>
-                                <a href="images/3piece3.jpg" class="gallery"><img src="images/3piece3.jpg" alt="Green Farshi Shalwar 3" class="zoomable"></a>
-                                <a href="images/3piece4.jpg" class="gallery"><img src="images/3piece4.jpg" alt="Green Farshi Shalwar 4" class="zoomable"></a>
+                                <img src="images/3piece1.jpg" alt="Green Farshi shalawr 1" class="zoomable">
+                                <img src="images/3piece2.jpg" alt="Green Farshi shalawr 2" class="zoomable">
+                                <img src="images/3piece3.jpg" alt="Green Farshi shalawr 3" class="zoomable">
+                                <img src="images/3piece4.jpg" alt="Green Farshi shalawr 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -672,16 +688,16 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Green Farshi Shalwar', 2999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Green Farshi Shalwar', 2999, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/frock1.jpg" class="gallery"><img src="images/frock1.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/frock2.jpg" class="gallery"><img src="images/frock2.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/frock3.jpg" class="gallery"><img src="images/frock3.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/frock4.jpg" class="gallery"><img src="images/frock4.jpg" alt="Frock" class="zoomable"></a>
+                                <img src="images/Wfrock1.jpg" alt="Frock 1" class="zoomable">
+                                <img src="images/Wfrock2.jpg" alt="Frock 2" class="zoomable">
+                                <img src="images/Wfrock3.jpg" alt="Frock 3" class="zoomable">
+                                <img src="images/Wfrock4.jpg" alt="Frock 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -693,16 +709,16 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Frock', 1999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Frock', 1999, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/Wfrock1.jpg" class="gallery"><img src="images/Wfrock1.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/Wfrock2.jpg" class="gallery"><img src="images/Wfrock2.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/Wfrock3.jpg" class="gallery"><img src="images/Wfrock3.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/Wfrock4.jpg" class="gallery"><img src="images/Wfrock4.jpg" alt="Frock" class="zoomable"></a>
+                                <img src="images/mirror1.jpg" alt="Frock 1" class="zoomable">
+                                <img src="images/mirror2.jpg" alt="Frock 2" class="zoomable">
+                                <img src="images/mirror3.jpg" alt="Frock 3" class="zoomable">
+                                <img src="images/mirror4.jpg" alt="Frock 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -714,37 +730,16 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Frock', 1999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Frock', 1999, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/mirror1.jpg" class="gallery"><img src="images/mirror1.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/mirror2.jpg" class="gallery"><img src="images/mirror2.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/mirror3.jpg" class="gallery"><img src="images/mirror3.jpg" alt="Frock" class="zoomable"></a>
-                                <a href="images/mirror4.jpg" class="gallery"><img src="images/mirror4.jpg" alt="Frock" class="zoomable"></a>
-                            </div>
-                        </div>
-                        <div class="zoomed-image"></div>
-                    </div>
-                    <h3>Frock</h3>
-                    <p class="price">Rs:1999</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Frock', 1999, this, 'products')">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="zoom-container">
-                        <div class="product-slider">
-                            <div class="slider-images">
-                                <a href="images/special1.jpg" class="gallery"><img src="images/special1.jpg" alt="Special Frock" class="zoomable"></a>
-                                <a href="images/special2.jpg" class="gallery"><img src="images/special2.jpg" alt="Special Frock" class="zoomable"></a>
-                                <a href="images/special3.jpg" class="gallery"><img src="images/special3.jpg" alt="Special Frock" class="zoomable"></a>
-                                <a href="images/special4.jpg" class="gallery"><img src="images/special4.jpg" alt="Special Frock" class="zoomable"></a>
+                                <img src="images/frock1.jpg" alt="Special Frock 1" class="zoomable">
+                                <img src="images/frock2.jpg" alt="Special Frock 2" class="zoomable">
+                                <img src="images/frock3.jpg" alt="Special Frock 3" class="zoomable">
+                                <img src="images/frock4.jpg" alt="Special Frock 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
@@ -756,16 +751,37 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Special Frock', 1999, this, 'products')">Buy Now</button>
+                    <button onclick="showOrderModal('Special Frock', 1999, this)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/special1.jpg" alt="Fancy Frock 1" class="zoomable">
+                                <img src="images/special2.jpg" alt="Fancy Frock 2" class="zoomable">
+                                <img src="images/special3.jpg" alt="Fancy Frock 3" class="zoomable">
+                                <img src="images/special4.jpg" alt="Fancy Frock 4" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Fancy Frock</h3>
+                    <p class="price">Rs:1999</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Fancy Frock', 1999, this)">Buy Now</button>
                 </div>
             </div>
         </div>
         <div class="banner banner-bottom">
             <div class="banner-slider">
-                <img src="images/green1.jpg" alt="Banner 1">
-                <img src="images/green2.jpg" alt="Banner 2">
-                <img src="images/green3.jpg" alt="Banner 3">
-                <img src="images/green4.jpg" alt="Banner 4">
+                <img src="images/green1.jpg" alt="1">
+                <img src="images/green2.jpg" alt="2">
+                <img src="images/green3.jpg" alt="3">
+                <img src="images/greeb4.jpg" alt="4">
             </div>
         </div>
         <div id="abaya" class="section">
@@ -776,75 +792,75 @@
             <div class="products">
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/abaya1.jpg" class="gallery"><img src="images/abaya1.jpg" alt="Lavender Abaya with Stoller 1" class="zoomable"></a>
-                                <a href="images/abaya2.jpg" class="gallery"><img src="images/abaya2.jpg" alt="Lavender Abaya with Stoller 2" class="zoomable"></a>
-                                <a href="images/abaya3.jpg" class="gallery"><img src="images/abaya3.jpg" alt="Lavender Abaya with Stoller 3" class="zoomable"></a>
-                                <a href="images/abaya4.jpg" class="gallery"><img src="images/abaya4.jpg" alt="Lavender Abaya with Stoller 4" class="zoomable"></a>
+                                <img src="images/abaya1.jpg" alt="lavender Abaya with stoller 1" class="zoomable">
+                                <img src="images/abaya2.jpg" alt="lavender Abaya with stoller 2" class="zoomable">
+                                <img src="images/abaya3.jpg" alt="lavender Abaya with stoller 3" class="zoomable">
+                                <img src="images/abaya4.jpg" alt="lavender Abaya with stoller 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Lavender Abaya with Stoller</h3>
+                    <h3>lavender Abaya with stoller</h3>
                     <p class="price">Rs:2900</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Lavender Abaya with Stoller', 2900, this, 'abaya')">Buy Now</button>
+                    <button onclick="showOrderModal('lavender Abaya with stoller', 2900, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/black1.jpg" class="gallery"><img src="images/black1.jpg" alt="Black Abaya with Stoller 1" class="zoomable"></a>
-                                <a href="images/black2.jpg" class="gallery"><img src="images/black2.jpg" alt="Black Abaya with Stoller 2" class="zoomable"></a>
-                                <a href="images/black3.jpg" class="gallery"><img src="images/black3.jpg" alt="Black Abaya with Stoller 3" class="zoomable"></a>
-                                <a href="images/black4.jpg" class="gallery"><img src="images/black4.jpg" alt="Black Abaya with Stoller 4" class="zoomable"></a>
+                                <img src="images/black1.jpg" alt="black Abaya 1" class="zoomable">
+                                <img src="images/black2.jpg" alt="black Abaya 2" class="zoomable">
+                                <img src="images/black3.jpg" alt="black Abaya 3" class="zoomable">
+                                <img src="images/black4.jpg" alt="black 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Black Abaya with Stoller</h3>
+                    <h3>black Abaya</h3>
                     <p class="price">Rs:2900</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Black Abaya with Stoller', 2900, this, 'abaya')">Buy Now</button>
+                    <button onclick="showOrderModal('black Abaya', 2900, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
-                        <div class="product-slider">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <a href="images/golden1.jpg" class="gallery"><img src="images/golden1.jpg" alt="Abaya with Stoller 1" class="zoomable"></a>
-                                <a href="images/golden2.jpg" class="gallery"><img src="images/golden2.jpg" alt="Abaya with Stoller 2" class="zoomable"></a>
-                                <a href="images/golden3.jpg" class="gallery"><img src="images/golden3.jpg" alt="Abaya with Stoller 3" class="zoomable"></a>
-                                <a href="images/golden4.jpg" class="gallery"><img src="images/golden4.jpg" alt="Abaya with Stoller 4" class="zoomable"></a>
+                                <img src="images/golden1.jpg" alt="Abaya 1" class="zoomable">
+                                <img src="images/golden2.jpg" alt="Abaya 2" class="zoomable">
+                                <img src="images/golden3.jpg" alt="Abaya 3" class="zoomable">
+                                <img src="images/golden4.jpg" alt="Abaya 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>Abaya with Stoller</h3>
+                    <h3>Abaya</h3>
                     <p class="price">Rs:2900</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Abaya with Stoller', 2900, this, 'abaya')">Buy Now</button>
+                    <button onclick="showOrderModal('Abaya', 2900, this)">Buy Now</button>
                 </div>
             </div>
         </div>
         <div id="contact" class="section">
             <h2>Contact Us</h2>
-            <p>Email: anmolclothing6@gmail.com</p>
+            <p>Email: ahmedsheikh0021@gmail.com</p>
             <p>Phone: +92 3446086595</p>
             <p>WhatsApp: <a href="https://wa.me/923446086595" target="_blank">Chat with us</a></p>
-            <p>Instagram (_anmolclothing): <a href="https://www.instagram.com/_anmolclothing" target="_blank">Follow us</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/anmolclothing_" target="_blank">Follow us</a></p>
         </div>
     </div>
     <a href="https://wa.me/923446086595" class="whatsapp-float" target="_blank">
@@ -867,22 +883,32 @@
             </div>
         </div>
     </div>
+    <div id="productGalleryModal" class="product-gallery-modal">
+        <div class="product-gallery-modal-content">
+            <span class="close" onclick="closeProductGalleryModal()">×</span>
+            <div class="gallery-images" id="productGalleryImages"></div>
+            <div class="nav-buttons">
+                <button onclick="prevImage()">❮</button>
+                <button onclick="nextImage()">❯</button>
+            </div>
+        </div>
+    </div>
     <footer>
         <p>© 2025 Anmol clothing. All rights reserved.</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script>
-        let currentProduct = { name: '', price: 0, size: '', button: null, section: '' };
+        let currentProduct = { name: '', price: 0, size: '', button: null };
+        let currentImageIndex = 0;
+        let galleryImages = [];
 
-        function showOrderModal(name, price, button, section) {
+        function showOrderModal(name, price, button) {
             const sizeOptions = button.parentElement.querySelector('.size-options');
             const selectedSize = sizeOptions.querySelector('span.selected');
             const size = selectedSize ? selectedSize.dataset.size : 'Not selected';
 
-            currentProduct = { name: name.trim(), price, size, button, section };
+            currentProduct = { name, price, size, button };
 
-            document.getElementById('modalProductName').textContent = name.trim();
+            document.getElementById('modalProductName').textContent = name;
             document.getElementById('modalProductPrice').textContent = `Price: Rs${price}`;
             document.getElementById('modalProductSize').textContent = `Size: ${size}`;
 
@@ -898,30 +924,66 @@
         }
 
         function orderViaWhatsApp() {
-            const { name, price, size, section } = currentProduct;
+            const { name, price, size } = currentProduct;
             if (size === 'Not selected') {
                 alert('Please select a size before ordering.');
                 return;
             }
-            const baseUrl = window.location.origin || 'https://yourwebsite.com';
-            const productUrl = `${baseUrl}/index.html#${section}`;
-            const message = `Hi, I want to order ${name} for Rs${price}. Size: ${size}. Product: ${productUrl}. Please provide further details.`;
+            const message = `Hi, I want to buy ${name} for Rs${price}. Size: ${size}. Please provide further details.`;
             const whatsappNumber = "923446086595";
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             closeModal();
-            setTimeout(() => alert('WhatsApp order shuru ho gaya! WhatsApp mein message complete karo.'), 500);
+            setTimeout(() => alert('Message sent via WhatsApp! We will contact you soon.'), 500);
         }
 
         function closeModal() {
             document.getElementById('orderModal').style.display = 'none';
         }
 
-        document.querySelector('.close').addEventListener('click', closeModal);
+        function showProductGalleryModal(slider) {
+            const images = slider.querySelectorAll('.slider-images img');
+            const galleryImagesContainer = document.getElementById('productGalleryImages');
+            galleryImagesContainer.innerHTML = '';
+            galleryImages = [];
+            currentImageIndex = 0;
+
+            images.forEach((img, index) => {
+                const galleryImg = document.createElement('img');
+                galleryImg.src = img.src;
+                galleryImg.alt = img.alt;
+                galleryImg.classList.add(index === 0 ? 'active' : '');
+                galleryImagesContainer.appendChild(galleryImg);
+                galleryImages.push(galleryImg);
+            });
+
+            document.getElementById('productGalleryModal').style.display = 'flex';
+        }
+
+        function closeProductGalleryModal() {
+            document.getElementById('productGalleryModal').style.display = 'none';
+        }
+
+        function prevImage() {
+            galleryImages[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            galleryImages[currentImageIndex].classList.add('active');
+        }
+
+        function nextImage() {
+            galleryImages[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            galleryImages[currentImageIndex].classList.add('active');
+        }
+
+        document.querySelector('#orderModal .close').addEventListener('click', closeModal);
 
         window.addEventListener('click', (event) => {
             if (event.target === document.getElementById('orderModal')) {
                 closeModal();
+            }
+            if (event.target === document.getElementById('productGalleryModal')) {
+                closeProductGalleryModal();
             }
         });
 
@@ -947,8 +1009,10 @@
             const sizeOptions = product.querySelector('.size-options');
             const sizeSpans = sizeOptions.querySelectorAll('span');
 
-            slider.addEventListener('click', () => {
-                sizeOptions.classList.toggle('show');
+            slider.addEventListener('click', (e) => {
+                if (!e.target.closest('.size-options') && !e.target.closest('button')) {
+                    sizeOptions.classList.toggle('show');
+                }
             });
 
             sizeSpans.forEach(span => {
@@ -992,29 +1056,6 @@
 
             img.addEventListener('mouseleave', () => {
                 zoomedImage.style.display = 'none';
-            });
-        });
-
-        // Initialize Magnific Popup for each product slider
-        document.querySelectorAll('.product-slider').forEach(slider => {
-            $(slider).magnificPopup({
-                delegate: 'a.gallery',
-                type: 'image',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1]
-                },
-                image: {
-                    verticalFit: true,
-                    titleSrc: function(item) {
-                        return item.el.find('img').attr('alt');
-                    }
-                },
-                zoom: {
-                    enabled: true,
-                    duration: 300
-                }
             });
         });
     </script>
