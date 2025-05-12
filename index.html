@@ -290,13 +290,19 @@
             justify-content: center;
             gap: 0.5rem;
             font-size: 1.3rem;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .product button:hover {
             background-color: #333333;
+            animation: pulse 1s infinite; /* Animated Buy Now Buttons */
         }
         .product button::before {
             content: '📱';
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         .section h2 {
             font-family: 'Poppins', sans-serif;
@@ -341,16 +347,69 @@
             margin-top: 3rem;
             font-size: 1.2rem;
         }
-        .whatsapp-float {
+        /* WhatsApp Chat Widget Styles */
+        .whatsapp-chat {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 100;
         }
-        .whatsapp-float img {
-            width: 50px;
-            height: 50px;
-            border: none;
+        .chat-icon img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .chat-icon img:hover {
+            transform: scale(1.1);
+        }
+        .chat-popup {
+            display: none;
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 250px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease-out;
+        }
+        .chat-popup.active {
+            display: block;
+        }
+        .chat-header {
+            background-color: #25D366;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-close {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .chat-body {
+            padding: 15px;
+            text-align: center;
+        }
+        .chat-body p {
+            margin: 0 0 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .chat-btn {
+            background-color: #25D366;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .chat-btn:hover {
+            background-color: #1DA851;
         }
         /* Modal Styles */
         .modal, .product-gallery-modal {
@@ -437,10 +496,11 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 1.2rem;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .modal-content .order-whatsapp:hover {
             background-color: #1DA851;
+            animation: pulse 1s infinite; /* Animated Modal Button */
         }
         .product-gallery-modal-content .gallery-images {
             position: relative;
@@ -620,6 +680,9 @@
             .product-gallery-modal-content .nav-buttons button {
                 padding: 0.5rem;
                 font-size: 1.2rem;
+            }
+            .chat-popup {
+                width: 200px;
             }
         }
     </style>
@@ -914,12 +977,24 @@
             <p>Email: anmolclothing6@gmail.com</p>
             <p>WhatsApp: <a href="https://wa.me/923446086595" target="_blank">Chat with us</a></p>
             <p>Instagram: <a href="https://www.instagram.com/anmolclothing1" target="_blank">Follow us</a></p>
-            <!-- <p>Facebook: <a href="https://www.facebook.com/Anmolclothing" target="_blank">Follow us</a></p> -->
         </div>
     </div>
-    <a href="https://wa.me/923446086595" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-chat">
+        <div class="chat-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </div>
+        <div class="chat-popup">
+            <div class="chat-header">
+                <span>Anmol Clothing Support</span>
+                <span class="chat-close">×</span>
+            </div>
+            <div class="chat-body">
+                <p>Suit ya abaya choose karne mein help chahiye? Abhi baat karo!</p>
+                <a href="https://wa.me/923446086595" target="_blank" class="chat-btn">Chat Shuru Karo</a>
+            </div>
+        </div>
+    </div>
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -951,6 +1026,40 @@
         <p>© 2025 Anmol clothing. All rights reserved.</p>
     </footer>
     <script>
+        // WhatsApp Chat Widget
+        const chatPopup = document.querySelector('.chat-popup');
+        let isManuallyToggled = false;
+
+        // Manual toggle on icon click
+        document.querySelector('.chat-icon').addEventListener('click', () => {
+            isManuallyToggled = true;
+            chatPopup.classList.toggle('active');
+        });
+
+        // Close button
+        document.querySelector('.chat-close').addEventListener('click', () => {
+            isManuallyToggled = true;
+            chatPopup.classList.remove('active');
+        });
+
+        // Auto-popup cycle: show after 7s, hide after 7s, wait 10s, repeat
+        function toggleChatPopup() {
+            if (!isManuallyToggled) {
+                chatPopup.classList.add('active');
+                setTimeout(() => {
+                    if (!isManuallyToggled) {
+                        chatPopup.classList.remove('active');
+                    }
+                    setTimeout(toggleChatPopup, 10000); // Wait 10s before next cycle
+                }, 7000); // Hide after 7s
+            } else {
+                setTimeout(toggleChatPopup, 17000); // If manually toggled, try again after full cycle (7s + 10s)
+            }
+        }
+
+        // Start the cycle after 7s
+        setTimeout(toggleChatPopup, 7000);
+
         // Navbar "context-like" state management
         const NavbarState = {
             isOpen: false,
