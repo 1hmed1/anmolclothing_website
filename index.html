@@ -830,7 +830,6 @@
                     <h3>Frock</h3>
                     <p class="price">Rs:1999</p>
                     <div class="size-options">
-                        <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
@@ -851,7 +850,6 @@
                     <h3>Frock</h3>
                     <p class="price">Rs:1999</p>
                     <div class="size-options">
-                        <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
@@ -872,7 +870,6 @@
                     <h3>Special Frock</h3>
                     <p class="price">Rs:1999</p>
                     <div class="size-options">
-                        <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
@@ -893,7 +890,6 @@
                     <h3>Pink Flower Maxxi Printed</h3>
                     <p class="price">Rs:1999</p>
                     <div class="size-options">
-                        <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
@@ -940,22 +936,22 @@
                     <div class="zoom-container">
                         <div class="product-slider" onclick="showProductGalleryModal(this)">
                             <div class="slider-images">
-                                <img src="images/black1.jpg" alt="black Abaya 1" class="zoomable">
-                                <img src="images/black2.jpg" alt="black Abaya 2" class="zoomable">
-                                <img src="images/black3.jpg" alt="black Abaya 3" class="zoomable">
-                                <img src="images/black4.jpg" alt="black Abaya 4" class="zoomable">
+                                <img src="images/black1.jpg" alt="Mystical Abaya With Stoller 1" class="zoomable">
+                                <img src="images/black2.jpg" alt="Mystical Abaya With Stoller 2" class="zoomable">
+                                <img src="images/black3.jpg" alt="Mystical Abaya With Stoller 3" class="zoomable">
+                                <img src="images/black4.jpg" alt="Mystical Abaya With Stoller 4" class="zoomable">
                             </div>
                         </div>
                         <div class="zoomed-image"></div>
                     </div>
-                    <h3>black Abaya With Stoller</h3>
+                    <h3>Mystical Abaya With Stoller</h3>
                     <p class="price">Rs:2900</p>
                     <div class="size-options">
                         <span data-size="S">S</span>
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('black Abaya With Stoller', 2900, this)">Buy Now</button>
+                    <button onclick="showOrderModal('Mystical Abaya With Stoller', 2900, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
@@ -1031,9 +1027,7 @@
             <p id="modalProductPrice"></p>
             <p class="instructions">Select your size and order via WhatsApp</p>
             <div class="size-options" id="modalSizeOptions">
-                <span data-size="S">S</span>
-                <span data-size="M">M</span>
-                <span data-size="L">L</span>
+                <!-- Dynamically populated based on product -->
             </div>
             <p id="modalProductSize"></p>
             <div class="order-buttons">
@@ -1120,7 +1114,7 @@
             });
         });
 
-        // Existing JavaScript (unchanged)
+        // Updated JavaScript for modal size options
         let currentProduct = { name: '', price: 0, size: '', button: null };
         let currentImageIndex = 0;
         let galleryImages = [];
@@ -1137,11 +1131,21 @@
             document.getElementById('modalProductSize').textContent = `Size: ${size}`;
 
             const modalSizeOptions = document.getElementById('modalSizeOptions');
-            modalSizeOptions.querySelectorAll('span').forEach(span => {
-                span.classList.remove('selected');
-                if (span.dataset.size === size) {
+            modalSizeOptions.innerHTML = ''; // Clear previous options
+
+            // Define available sizes based on product
+            const frockProducts = ['Frock', 'Special Frock', 'Pink Flower Maxxi Printed'];
+            const availableSizes = frockProducts.includes(name) ? ['M', 'L'] : ['S', 'M', 'L'];
+
+            // Populate modal size options
+            availableSizes.forEach(sizeOption => {
+                const span = document.createElement('span');
+                span.dataset.size = sizeOption;
+                span.textContent = sizeOption;
+                if (sizeOption === size) {
                     span.classList.add('selected');
                 }
+                modalSizeOptions.appendChild(span);
             });
 
             document.getElementById('orderModal').style.display = 'flex';
@@ -1211,13 +1215,14 @@
             }
         });
 
-        document.getElementById('modalSizeOptions').querySelectorAll('span').forEach(span => {
-            span.addEventListener('click', () => {
+        // Attach click listeners to modal size options
+        document.getElementById('modalSizeOptions').addEventListener('click', (event) => {
+            if (event.target.tagName === 'SPAN') {
                 document.getElementById('modalSizeOptions').querySelectorAll('span').forEach(s => s.classList.remove('selected'));
-                span.classList.add('selected');
-                currentProduct.size = span.dataset.size;
+                event.target.classList.add('selected');
+                currentProduct.size = event.target.dataset.size;
                 document.getElementById('modalProductSize').textContent = `Size: ${currentProduct.size}`;
-            });
+            }
         });
 
         document.querySelectorAll('nav a').forEach(anchor => {
