@@ -454,6 +454,11 @@
             color: #333333;
             margin: 0.5rem 0;
         }
+        .modal-content #modalProductFabric {
+            color: #555555;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
         .modal-content .instructions {
             font-size: 1.1rem;
             color: #555555;
@@ -664,6 +669,9 @@
                 font-size: 1.5rem;
             }
             .modal-content p {
+                font-size: 1rem;
+            }
+            .modal-content #modalProductFabric {
                 font-size: 1rem;
             }
             .modal-content .instructions {
@@ -972,7 +980,7 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Abaya', 2900, this)">Buy Now</button>
+                    <button onclick="showOrderModal('Abaya With Stoller', 2900, this)">Buy Now</button>
                 </div>
                 <div class="product">
                     <div class="zoom-container">
@@ -993,7 +1001,7 @@
                         <span data-size="M">M</span>
                         <span data-size="L">L</span>
                     </div>
-                    <button onclick="showOrderModal('Mirha Abaya With Stoller', 2900, this)">Buy Now</button>
+                    <button onclick="showOrderModal('Mirha Abaya with stoller', 2900, this)">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -1001,7 +1009,7 @@
             <h2>Contact Us</h2>
             <p>Email: anmolclothing6@gmail.com</p>
             <p>WhatsApp: <a href="https://wa.me/+923243953667" target="_blank">Chat with us</a></p>
-            <p>Instagram: <a href="https://www.instagram.com/anmolclothing1" target="_blank">Follow us</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/_anmolclothing" target="_blank">Follow us</a></p>
         </div>
     </div>
     <!-- WhatsApp Chat Widget -->
@@ -1025,6 +1033,7 @@
             <span class="close">×</span>
             <h3 id="modalProductName"></h3>
             <p id="modalProductPrice"></p>
+            <p id="modalProductFabric"></p>
             <p class="instructions">Select your size and order via WhatsApp</p>
             <div class="size-options" id="modalSizeOptions">
                 <!-- Dynamically populated based on product -->
@@ -1114,7 +1123,22 @@
             });
         });
 
-        // Updated JavaScript for modal size options
+        // Fabric details for products
+        const fabricMap = {
+            'Chaffon Embroidered': 'Chiffon',
+            'Special Fancy Dress': 'Cotton',
+            'Special Farshi Shalwar': 'Row Silk',
+            'Green Farshi Shalwar': 'Row Silk',
+            'Frock': 'Chaffon',
+            'Special Frock': 'Chaffon',
+            'Pink Flower Maxxi Printed': 'Chaffon',
+            'lavender Abaya with stoller': 'China Georgette',
+            'Mystical Abaya With Stoller': 'China Georgette',
+            'Abaya With Stoller': 'China Georgette',
+            'Mirha Abaya with stoller': 'China Georgette'
+        };
+
+        // Updated JavaScript for modal with fabric details
         let currentProduct = { name: '', price: 0, size: '', button: null };
         let currentImageIndex = 0;
         let galleryImages = [];
@@ -1128,6 +1152,7 @@
 
             document.getElementById('modalProductName').textContent = name;
             document.getElementById('modalProductPrice').textContent = `Price: Rs${price}`;
+            document.getElementById('modalProductFabric').textContent = `Fabric: ${fabricMap[name] || 'Not specified'}`;
             document.getElementById('modalProductSize').textContent = `Size: ${size}`;
 
             const modalSizeOptions = document.getElementById('modalSizeOptions');
@@ -1157,7 +1182,8 @@
                 alert('Please select a size before ordering.');
                 return;
             }
-            const message = `Hi, I want to buy ${name} for Rs${price}. Size: ${size}. Please provide further details.`;
+            const fabric = fabricMap[name] || 'Not specified';
+            const message = `Hi, I want to buy ${name} for Rs${price}. Size: ${size}. Fabric: ${fabric}. Please provide further details.`;
             const whatsappNumber = "+923243953667";
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
