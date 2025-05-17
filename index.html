@@ -128,7 +128,7 @@
             transform: translateX(-50px);
             animation: fadeSlideIn 1s ease-out forwards;
         }
-        .banner-abaya, .banner-bottom {
+        .banner-abaya, .banner-bottom, .banner-sleepwear {
             width: 100vw;
             margin: 0;
             position: relative;
@@ -143,7 +143,7 @@
             width: 300%;
             animation: slide 6s infinite;
         }
-        .banner-bottom .banner-slider, .banner-abaya .banner-slider {
+        .banner-bottom .banner-slider, .banner-abaya .banner-slider, .banner-sleepwear .banner-slider {
             display: flex;
             width: 400%;
             animation: slide 8s infinite;
@@ -156,7 +156,7 @@
             display: block;
             border: none;
         }
-        .banner-abaya img, .banner-bottom img {
+        .banner-abaya img, .banner-bottom img, .banner-sleepwear img {
             width: 100vw;
             height: auto;
             object-fit: cover;
@@ -203,6 +203,10 @@
             height: 100%;
             animation: productSlide 8s infinite;
         }
+        .sleepwear .product .product-slider .slider-images {
+            width: 300%;
+            animation: sleepwearSlide 6s infinite;
+        }
         .product .product-slider img {
             width: 25%;
             height: 100%;
@@ -210,6 +214,9 @@
             border: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .sleepwear .product .product-slider img {
+            width: 33.33%;
         }
         .product .product-slider img:hover {
             transform: scale(1.1) translateY(-10px);
@@ -224,6 +231,14 @@
             75% { transform: translateX(-50%); }
             75.01% { transform: translateX(-75%); }
             100% { transform: translateX(-75%); }
+        }
+        @keyframes sleepwearSlide {
+            0% { transform: translateX(0); }
+            33.33% { transform: translateX(0); }
+            33.34% { transform: translateX(-33.33%); }
+            66.66% { transform: translateX(-33.33%); }
+            66.67% { transform: translateX(-66.66%); }
+            100% { transform: translateX(-66.66%); }
         }
         .product .zoomed-image {
             display: none;
@@ -626,7 +641,7 @@
             .banner-top img {
                 height: 50vh;
             }
-            .banner-abaya img, .banner-bottom img {
+            .banner-abaya img, .banner-bottom img, .banner-sleepwear img {
                 width: 100vw;
                 height: auto;
                 max-height: 300px;
@@ -720,6 +735,7 @@
                 <a href="#home">Home</a>
                 <a href="#products">Shop</a>
                 <a href="#abaya">Abaya</a>
+                <a href="#sleepwear">Sleepwear</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -1005,6 +1021,139 @@
                 </div>
             </div>
         </div>
+        <div id="sleepwear" class="section sleepwear">
+            <h2>Sleepwear Collection</h2>
+            <div class="banner banner-sleepwear">
+                <div class="banner-slider">
+                    <img src="images/sleep1.jpg" alt="Sleepwear Banner 1">
+                    <img src="images/sleep2.jpg" alt="Sleepwear Banner 2">
+                    <img src="images/sleep3.jpg" alt="Sleepwear Banner 3">
+                    <img src="images/sleep4.jpg" alt="Sleepwear Banner 4">
+                </div>
+            </div>
+            <div class="products">
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/silk1.jpg" alt="Anmol Night Suit 1" class="zoomable">
+                                <img src="images/silk2.jpg" alt="Anmol Night Suit 2" class="zoomable">
+                                <img src="images/silk3.jpg" alt="Anmol Night Suit 3" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Anmol Hello Sunshine Sleep wear</h3>
+                    <p class="price">Rs:1299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Anmol Hello Sunshine Sleep wear', 1299, this)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/night1.jpg" alt="Anmol Night Wear" class="zoomable">
+                                <img src="images/night2.jpg" alt="Anmol Night Wear2" class="zoomable">
+                                <img src="images/night3.jpg" alt="Anmol Night Wear3" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Anmol Love Sleep Wear</h3>
+                    <p class="price">Rs:1299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Anmol Love Sleep wear', 1299, this)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/wear1.jpg" alt="Anmol sleep wear 1" class="zoomable">
+                                <img src="images/wear2.jpg" alt="Anmol sleep wear 2" class="zoomable">
+                                <img src="images/wear3.jpg" alt="Anmol sleep wear 3" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Anmol Black Heart Sleep Wear</h3>
+                    <p class="price">Rs:1299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Anmol Black Heart Sleep wear', 1299, this)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/1wear1.jpg" alt="Anmol Sleep Wear1" class="zoomable">
+                                <img src="images/1wear2.jpg" alt="Anmol Sleep Wear2" class="zoomable">
+                                <img src="images/1wear3.jpg" alt="Anmol Sleep Wear3" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Anmol Lining sleep Wear</h3>
+                    <p class="price">Rs:1299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Anmol Lining sleep wear', 1299, this)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/2wear1.jpg" alt="Anmol Sleep Wear 1" class="zoomable">
+                                <img src="images/2wear2.jpg" alt="Anmol Sleep Wear 2" class="zoomable">
+                                <img src="images/2wear3.jpg" alt="Anmol Sleep Wear3" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Anmol Sweet Heart Sleep wear </h3>
+                    <p class="price">Rs:1299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Anmol Sweet Heart Sleep wear', 1299, this)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <div class="zoom-container">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/short1.jpg" alt="Anmol Short Sleep Wear 1" class="zoomable">
+                                <img src="images/short2.jpg" alt="Anmol Short Sleep Wear 2" class="zoomable">
+                                <img src="images/short3.jpg" alt="Anmol Short Sleep Wear 3" class="zoomable">
+                            </div>
+                        </div>
+                        <div class="zoomed-image"></div>
+                    </div>
+                    <h3>Anmol Lining Sleep Wear Short</h3>
+                    <p class="price">Rs:1299</p>
+                    <div class="size-options">
+                        <span data-size="S">S</span>
+                        <span data-size="M">M</span>
+                        <span data-size="L">L</span>
+                    </div>
+                    <button onclick="showOrderModal('Anmol Lining Sleep Wear Short', 1299, this)">Buy Now</button>
+                </div>
+            </div>
+        </div>
         <div id="contact" class="section">
             <h2>Contact Us</h2>
             <p>Email: anmolclothing6@gmail.com</p>
@@ -1136,7 +1285,14 @@
             'lavender Abaya with stoller': 'China Georgette',
             'Mystical Abaya With Stoller': 'China Georgette',
             'Abaya With Stoller': 'China Georgette',
-            'Mirha Abaya with stoller': 'China Georgette'
+            'Mirha Abaya with stoller': 'China Georgette',
+            'Anmol Hello Sunshine Sleep wear': 'Jersey',
+            'Anmol Love Sleep Wear': 'Jersey',
+            'Anmol Black Heart Sleep Wear': 'Jersey',
+            'Anmol Lining sleep Wear': 'Jersey',
+            'Anmol Sweet Heart Sleep wear': 'Jersey',
+            'Anmol Lining Sleep Wear Short': 'Jersey',
+            
         };
 
         // Updated JavaScript for modal with fabric details
@@ -1161,7 +1317,7 @@
 
             // Define available sizes based on product
             const frockProducts = ['Frock', 'Special Frock', 'Pink Flower Maxxi Printed'];
-            const availableSizes = frockProducts.includes(name) ? ['M', 'L'] : ['S', 'M', 'L'];
+            const availableSizes = frockProducts.some(frock => name.includes(frock)) ? ['M', 'L'] : ['S', 'M', 'L'];
 
             // Populate modal size options
             availableSizes.forEach(sizeOption => {
