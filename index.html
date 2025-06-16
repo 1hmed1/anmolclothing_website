@@ -29,7 +29,7 @@
          line-height: 1.8;
          color: #333333;
          margin: 0; /* Added to remove default margins */
-         padding: 0;;
+         padding: 0;
         }
 
         header {
@@ -359,39 +359,36 @@
         }
 
         .product button {
-            background-color: #000000;
+            background: linear-gradient(135deg, #000000 0%, #4B3F00 100%);
             color: #FFFFFF;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
             font-family: 'Poppins', sans-serif;
             font-size: 1.3rem;
-            font-weight: 500;
-            letter-spacing: 0.8px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .product button:hover {
-            background-color: #FFD700;
+            background: linear-gradient(135deg, #FFD700 0%, #D4A017 100%);
             color: #000000;
-            transform: scale(1.05);
-            animation: pulse 1s infinite;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+            animation: refinedPulse 1.2s infinite;
         }
 
-        .product button::before {
-            content: '📱';
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        @keyframes refinedPulse {
+            0% { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); }
+            50% { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5); }
+            100% { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); }
         }
 
         .section h2 {
@@ -650,12 +647,6 @@
             color: #FFD700;
         }
 
-        .modal-content .order-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-
         .modal-content .order-whatsapp {
             background-color: #25D366;
             color: #FFFFFF;
@@ -876,7 +867,7 @@
             }
             .product button {
                 font-size: 1.1rem;
-                padding: 0.5rem 1rem;
+                padding: 0.7rem 1.5rem;
             }
             .section h2 {
                 font-size: 1.8rem;
@@ -960,7 +951,7 @@
                 <div class="banner-slider">
                     <img src="images/banner1.jpg" alt="Banner 1">
                     <img src="images/bannerslides2.jpg" alt="Banner 2">
-                    <img src="images/flower2.jpg" alt="Banner 3">
+                    <img src="images/banner3.jpg" alt="Banner 3">
                 </div>
             </div>
             <h2>Welcome to my page</h2>
@@ -1185,7 +1176,7 @@
         </div>
         <div class="banner banner-bottom">
             <div class="banner-slider">
-                <img src="images/lawn1.jpg" alt="Banner 1">
+                <img src="images/banner3.jpg" alt="Banner 1">
                 <img src="images/flower3.jpg" alt="Banner 2">
                 <img src="images/blue3.jpg" alt="Banner 3">
                 <img src="images/long4.jpg" alt="Banner 4">
@@ -1340,7 +1331,7 @@
                 </div>
                 <div class="product">
                     <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
+                        <div class="∆slider-images">
                             <img src="images/1wear1.jpg" alt="Anmol Lining sleep wear 1">
                             <img src="images/1wear2.jpg" alt="Anmol Lining sleep wear 2">
                             <img src="images/1wear3.jpg" alt="Anmol Lining sleep wear 3">
@@ -1536,7 +1527,7 @@
             modalOptions.innerHTML = '';
 
             const frockProducts = ['Frock', 'Special', 'Pink Flower Maxxi Printed'];
-            const sizes = frockProducts.some(f => name.includes(f)) ? ['M', 'L'] : ['S', 'M', 'L'];
+            const sizes = frockProducts.some(f => name.includes(f)) ? ['M', 'M', 'L'] : ['S', 'M', 'L'];
 
             sizes.forEach(s => {
                 const span = document.createElement('span');
