@@ -28,7 +28,7 @@
          font-size: 1.1rem;
          line-height: 1.8;
          color: #333333;
-         margin: 0; /* Added to remove default margins */
+         margin: 0;
          padding: 0;
         }
 
@@ -224,6 +224,21 @@
             justify-items: center;
         }
 
+        /* Updated Products Layout for Two Side by Side */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .product-pair {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            max-width: 700px; /* Adjust based on your design */
+        }
+
         .product {
             background-color: #FFFFFF;
             border: none;
@@ -235,8 +250,8 @@
             animation: scaleUp 0.5s ease-out forwards;
             position: relative;
             overflow: hidden;
-            max-width: 350px;
             width: 100%;
+            max-width: 340px; /* Adjusted for two side by side */
         }
 
         .product .product-slider {
@@ -796,6 +811,16 @@
             .product p.price {
                 font-size: 1.4rem;
             }
+            .products-container {
+                flex-direction: column;
+            }
+            .product-pair {
+                flex-direction: column;
+                max-width: 100%;
+            }
+            .product {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 600px) {
@@ -840,11 +865,16 @@
                 max-height: 300px;
                 width: 25%;
             }
-            .products {
-                grid-template-columns: 1fr;
+            .products-container {
+                flex-direction: column;
+            }
+            .product-pair {
+                flex-direction: column;
+                max-width: 100%;
             }
             .product {
                 max-width: 100%;
+                margin-bottom: 1rem;
             }
             .product .product-slider {
                 height: 250px;
@@ -959,218 +989,230 @@
         </div>
         <div id="products" class="section">
             <h2>Our Collection</h2>
-            <div class="products">
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/suits1.jpg" alt="Rooh-e-Sham 1">
-                            <img src="images/suits2.jpg" alt="Rooh-e-Sham 2">
-                            <img src="images/suits3.jpg" alt="Rooh-e-Sham 3">
-                            <img src="images/suits4.jpg" alt="Rooh-e-Sham 4">
+            <div class="products-container">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/suits1.jpg" alt="Rooh-e-Sham 1">
+                                <img src="images/suits2.jpg" alt="Rooh-e-Sham 2">
+                                <img src="images/suits3.jpg" alt="Rooh-e-Sham 3">
+                                <img src="images/suits4.jpg" alt="Rooh-e-Sham 4">
+                            </div>
                         </div>
+                        <h3>Rooh-e-Sham</h3>
+                        <p class="price">Rs:2999</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Rooh-e-Sham', 2999, this)">Buy Now</button>
                     </div>
-                    <h3>Rooh-e-Sham</h3>
-                    <p class="price">Rs:2999</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/heavy1.jpg" alt="Special Fancy Dress 1">
+                                <img src="images/heavy2.jpg" alt="Special Fancy Dress 2">
+                                <img src="images/heavy3.jpg" alt="Special Fancy Dress 3">
+                                <img src="images/heavy4.jpg" alt="Special Fancy Dress 4">
+                            </div>
+                        </div>
+                        <h3>Special Fancy Dress</h3>
+                        <p class="price">Rs:3500</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Special Fancy Dress', 3500, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Rooh-e-Sham', 2999, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/heavy1.jpg" alt="Special Fancy Dress 1">
-                            <img src="images/heavy2.jpg" alt="Special Fancy Dress 2">
-                            <img src="images/heavy3.jpg" alt="Special Fancy Dress 3">
-                            <img src="images/heavy4.jpg" alt="Special Fancy Dress 4">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/farshi1.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 1">
+                                <img src="images/farshi2.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 2">
+                                <img src="images/farshi3.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 3">
+                                <img src="images/farshi4.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 4">
+                            </div>
                         </div>
+                        <h3>Zahra Silk Embroidered 3-Piece Suit</h3>
+                        <p class="price">Rs:3500</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Zahra Silk Embroidered 3-Piece Suit', 3500, this)">Buy Now</button>
                     </div>
-                    <h3>Special Fancy Dress</h3>
-                    <p class="price">Rs:3500</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/3piece1.jpg" alt="Ivory Royal Printed long Set 1">
+                                <img src="images/3piece2.jpg" alt="Ivory Royal Printed long Set 2">
+                                <img src="images/3piece3.jpg" alt="Ivory Royal Printed long Set 3">
+                                <img src="images/3piece4.jpg" alt="Ivory Royal Printed long Set 4">
+                            </div>
+                        </div>
+                        <h3>Ivory Royal Printed long Set</h3>
+                        <p class="price">Rs:2999</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Ivory Royal Printed long Set', 2999, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Special Fancy Dress', 3500, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/farshi1.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 1">
-                            <img src="images/farshi2.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 2">
-                            <img src="images/farshi3.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 3">
-                            <img src="images/farshi4.jpg" alt="Zahra Silk Embroidered 3-Piece Suit 4">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/long1.jpg" alt="Teal Elegance Embroidered 3pcs-suit 1">
+                                <img src="images/long2.jpg" alt="Teal Elegance Embroidered 3pcs-suit 2">
+                                <img src="images/long3.jpg" alt="Teal Elegance Embroidered 3pcs-suit 3">
+                                <img src="images/long4.jpg" alt="Teal Elegance Embroidered 3pcs-suit 4">
+                            </div>
                         </div>
+                        <h3>Teal Elegance Embroidered 3pcs-suit</h3>
+                        <p class="price">Rs:3650</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Teal Elegance Embroidered 3pcs-suit', 3650, this)">Buy Now</button>
                     </div>
-                    <h3>Zahra Silk Embroidered 3-Piece Suit</h3>
-                    <p class="price">Rs:3500</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/blue1.jpg" alt="Anmol Silk Embroidery 1">
+                                <img src="images/blue2.jpg" alt="Anmol Silk Embroidery 2">
+                                <img src="images/blue3.jpg" alt="Anmol Silk Embroidery 3">
+                                <img src="images/blue4.jpg" alt="Anmol Silk Embroidery 4">
+                            </div>
+                        </div>
+                        <h3>Anmol Silk Embroidery</h3>
+                        <p class="price">Rs:2350</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol Silk Embroidery', 2350, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Zahra Silk Embroidered 3-Piece Suit', 3500, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/3piece1.jpg" alt="Ivory Royal Printed long Set 1">
-                            <img src="images/3piece2.jpg" alt="Ivory Royal Printed long Set 2">
-                            <img src="images/3piece3.jpg" alt="Ivory Royal Printed long Set 3">
-                            <img src="images/3piece4.jpg" alt="Ivory Royal Printed long Set 4">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/flower1.jpg" alt="Rang-bahaar 1">
+                                <img src="images/flower2.jpg" alt="Rang-bahaar 2">
+                                <img src="images/flower3.jpg" alt="Rang-bahaar 3">
+                                <img src="images/flower4.jpg" alt="Rang-bahaar 4">
+                            </div>
                         </div>
+                        <h3>Rang-bahaar</h3>
+                        <p class="price">Rs:3500</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Rang-bahaar', 3500, this)">Buy Now</button>
                     </div>
-                    <h3>Ivory Royal Printed long Set</h3>
-                    <p class="price">Rs:2999</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/lawn1.jpg" alt="Anmol lawn pret2pc 1">
+                                <img src="images/lawn2.jpg" alt="Anmol lawn pret2pc 2">
+                                <img src="images/lawn3.jpg" alt="Anmol lawn pret2pc 3">
+                                <img src="images/lawn4.jpg" alt="Anmol lawn pret2pc 4">
+                            </div>
+                        </div>
+                        <h3>Anmol lawn pret2pc</h3>
+                        <p class="price">Rs:2800</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol lawn pret2pc', 2800, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Ivory Royal Printed long Set', 2999, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/long1.jpg" alt="Teal Elegance Embroidered 3pcs-suit 1">
-                            <img src="images/long2.jpg" alt="Teal Elegance Embroidered 3pcs-suit 2">
-                            <img src="images/long3.jpg" alt="Teal Elegance Embroidered 3pcs-suit 3">
-                            <img src="images/long4.jpg" alt="Teal Elegance Embroidered 3pcs-suit 4">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/Wfrock1.jpg" alt="Anmol Collection Special Frock 1">
+                                <img src="images/Wfrock2.jpg" alt="Anmol Collection Special Frock 2">
+                                <img src="images/Wfrock3.jpg" alt="Anmol Collection Special Frock 3">
+                                <img src="images/Wfrock4.jpg" alt="Anmol Collection Special Frock 4">
+                            </div>
                         </div>
+                        <h3>Anmol Collection Special Frock</h3>
+                        <p class="price">Rs:1999</p>
+                        <div class="size-options">
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol Collection Special Frock', 1999, this)">Buy Now</button>
                     </div>
-                    <h3>Teal Elegance Embroidered 3pcs-suit</h3>
-                    <p class="price">Rs:3650</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/mirror1.jpg" alt="Black Elegant Frock 1">
+                                <img src="images/mirror2.jpg" alt="Black Elegant Frock 2">
+                                <img src="images/mirror3.jpg" alt="Black Elegant Frock 3">
+                                <img src="images/mirror4.jpg" alt="Black Elegant Frock 4">
+                            </div>
+                        </div>
+                        <h3>Black Elegant Frock</h3>
+                        <p class="price">Rs:2150</p>
+                        <div class="size-options">
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Black Elegant Frock', 2150, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Teal Elegance Embroidered 3pcs-suit', 3650, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/blue1.jpg" alt="Anmol Silk Embroidery 1">
-                            <img src="images/blue2.jpg" alt="Anmol Silk Embroidery 2">
-                            <img src="images/blue3.jpg" alt="Anmol Silk Embroidery 3">
-                            <img src="images/blue4.jpg" alt="Anmol Silk Embroidery 4">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/frock1.jpg" alt="Pink rose Printed Lawn Frock 1">
+                                <img src="images/frock2.jpg" alt="Pink rose Printed Lawn Frock 2">
+                                <img src="images/frock3.jpg" alt="Pink rose Printed Lawn Frock 3">
+                                <img src="images/frock4.jpg" alt="Pink rose Printed Lawn Frock 4">
+                            </div>
                         </div>
-                    </div>
-                    <h3>Anmol Silk Embroidery</h3>
-                    <p class="price">Rs:2350</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol Silk Embroidery', 2350, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/flower1.jpg" alt="Rang-bahaar 1">
-                            <img src="images/flower2.jpg" alt="Rang-bahaar 2">
-                            <img src="images/flower3.jpg" alt="Rang-bahaar 3">
-                            <img src="images/flower4.jpg" alt="Rang-bahaar 4">
+                        <h3>Pink rose Printed Lawn Frock</h3>
+                        <p class="price">Rs:2450</p>
+                        <div class="size-options">
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
                         </div>
+                        <button onclick="showOrderModal('Pink rose Printed Lawn Frock', 2450, this)">Buy Now</button>
                     </div>
-                    <h3>Rang-bahaar</h3>
-                    <p class="price">Rs:3500</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Rang-bahaar', 3500, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/lawn1.jpg" alt="Anmol lawn pret2pc 1">
-                            <img src="images/lawn2.jpg" alt="Anmol lawn pret2pc 2">
-                            <img src="images/lawn3.jpg" alt="Anmol lawn pret2pc 3">
-                            <img src="images/lawn4.jpg" alt="Anmol lawn pret2pc 4">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/special1.jpg" alt="Pink Flower Maxxi Printed 1">
+                                <img src="images/special2.jpg" alt="Pink Flower Maxxi Printed 2">
+                                <img src="images/special3.jpg" alt="Pink Flower Maxxi Printed 3">
+                                <img src="images/special4.jpg" alt="Pink Flower Maxxi Printed 4">
+                            </div>
                         </div>
-                    </div>
-                    <h3>Anmol lawn pret2pc</h3>
-                    <p class="price">Rs:2800</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol lawn pret2pc', 2800, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/Wfrock1.jpg" alt="Anmol Collection Special Frock 1">
-                            <img src="images/Wfrock2.jpg" alt="Anmol Collection Special Frock 2">
-                            <img src="images/Wfrock3.jpg" alt="Anmol Collection Special Frock 3">
-                            <img src="images/Wfrock4.jpg" alt="Anmol Collection Special Frock 4">
+                        <h3>Pink Flower Maxxi Printed</h3>
+                        <p class="price">Rs:1999</p>
+                        <div class="size-options">
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
                         </div>
+                        <button onclick="showOrderModal('Pink Flower Maxxi Printed', 1999, this)">Buy Now</button>
                     </div>
-                    <h3>Anmol Collection Special Frock</h3>
-                    <p class="price">Rs:1999</p>
-                    <div class="size-options">
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol Collection Special Frock', 1999, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/mirror1.jpg" alt="Black Elegant Frock 1">
-                            <img src="images/mirror2.jpg" alt="Black Elegant Frock 2">
-                            <img src="images/mirror3.jpg" alt="Black Elegant Frock 3">
-                            <img src="images/mirror4.jpg" alt="Black Elegant Frock 4">
-                        </div>
-                    </div>
-                    <h3>Black Elegant Frock</h3>
-                    <p class="price">Rs:2150</p>
-                    <div class="size-options">
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Black Elegant Frock', 2150, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/frock1.jpg" alt="Pink rose Printed Lawn Frock 1">
-                            <img src="images/frock2.jpg" alt="Pink rose Printed Lawn Frock 2">
-                            <img src="images/frock3.jpg" alt="Pink rose Printed Lawn Frock 3">
-                            <img src="images/frock4.jpg" alt="Pink rose Printed Lawn Frock 4">
-                        </div>
-                    </div>
-                    <h3>Pink rose Printed Lawn Frock</h3>
-                    <p class="price">Rs:2450</p>
-                    <div class="size-options">
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Pink rose Printed Lawn Frock', 2450, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/special1.jpg" alt="Pink Flower Maxxi Printed 1">
-                            <img src="images/special2.jpg" alt="Pink Flower Maxxi Printed 2">
-                            <img src="images/special3.jpg" alt="Pink Flower Maxxi Printed 3">
-                            <img src="images/special4.jpg" alt="Pink Flower Maxxi Printed 4">
-                        </div>
-                    </div>
-                    <h3>Pink Flower Maxxi Printed</h3>
-                    <p class="price">Rs:1999</p>
-                    <div class="size-options">
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Pink Flower Maxxi Printed', 1999, this)">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -1192,78 +1234,82 @@
                     <img src="images/abaya4.jpg" alt="Abaya Banner 4">
                 </div>
             </div>
-            <div class="products">
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/abaya1.jpg" alt="lavender Abaya with stoller 1">
-                            <img src="images/abaya2.jpg" alt="lavender Abaya with stoller 2">
-                            <img src="images/abaya3.jpg" alt="lavender Abaya with stoller 3">
-                            <img src="images/abaya4.jpg" alt="lavender Abaya with stoller 4">
+            <div class="products-container">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/abaya1.jpg" alt="lavender Abaya with stoller 1">
+                                <img src="images/abaya2.jpg" alt="lavender Abaya with stoller 2">
+                                <img src="images/abaya3.jpg" alt="lavender Abaya with stoller 3">
+                                <img src="images/abaya4.jpg" alt="lavender Abaya with stoller 4">
+                            </div>
                         </div>
+                        <h3>lavender Abaya with stoller</h3>
+                        <p class="price">Rs:2900</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('lavender Abaya with stoller', 2900, this)">Buy Now</button>
                     </div>
-                    <h3>lavender Abaya with stoller</h3>
-                    <p class="price">Rs:2900</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/black1.jpg" alt="Mystical Abaya With Stoller 1">
+                                <img src="images/black2.jpg" alt="Mystical Abaya With Stoller 2">
+                                <img src="images/black3.jpg" alt="Mystical Abaya With Stoller 3">
+                                <img src="images/black4.jpg" alt="Mystical Abaya With Stoller 4">
+                            </div>
+                        </div>
+                        <h3>Mystical Abaya With Stoller</h3>
+                        <p class="price">Rs:2900</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Mystical Abaya With Stoller', 2900, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('lavender Abaya with stoller', 2900, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/black1.jpg" alt="Mystical Abaya With Stoller 1">
-                            <img src="images/black2.jpg" alt="Mystical Abaya With Stoller 2">
-                            <img src="images/black3.jpg" alt="Mystical Abaya With Stoller 3">
-                            <img src="images/black4.jpg" alt="Mystical Abaya With Stoller 4">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/golden1.jpg" alt="Abaya With Stoller 1">
+                                <img src="images/golden2.jpg" alt="Abaya With Stoller 2">
+                                <img src="images/golden3.jpg" alt="Abaya With Stoller 3">
+                                <img src="images/golden4.jpg" alt="Abaya With Stoller 4">
+                            </div>
                         </div>
-                    </div>
-                    <h3>Mystical Abaya With Stoller</h3>
-                    <p class="price">Rs:2900</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Mystical Abaya With Stoller', 2900, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/golden1.jpg" alt="Abaya With Stoller 1">
-                            <img src="images/golden2.jpg" alt="Abaya With Stoller 2">
-                            <img src="images/golden3.jpg" alt="Abaya With Stoller 3">
-                            <img src="images/golden4.jpg" alt="Abaya With Stoller 4">
+                        <h3>Abaya With Stoller</h3>
+                        <p class="price">Rs:2900</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
                         </div>
+                        <button onclick="showOrderModal('Abaya With Stoller', 2900, this)">Buy Now</button>
                     </div>
-                    <h3>Abaya With Stoller</h3>
-                    <p class="price">Rs:2900</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Abaya With Stoller', 2900, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/mirha1.jpg" alt="Mirha Abaya with stoller 1">
-                            <img src="images/mirha2.jpg" alt="Mirha Abaya with stoller 2">
-                            <img src="images/mirha3.jpg" alt="Mirha Abaya with stoller 3">
-                            <img src="images/mirha4.jpg" alt="Mirha Abaya with stoller 4">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/mirha1.jpg" alt="Mirha Abaya with stoller 1">
+                                <img src="images/mirha2.jpg" alt="Mirha Abaya with stoller 2">
+                                <img src="images/mirha3.jpg" alt="Mirha Abaya with stoller 3">
+                                <img src="images/mirha4.jpg" alt="Mirha Abaya with stoller 4">
+                            </div>
                         </div>
+                        <h3>Mirha Abaya with stoller</h3>
+                        <p class="price">Rs:2900</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Mirha Abaya with stoller', 2900, this)">Buy Now</button>
                     </div>
-                    <h3>Mirha Abaya with stoller</h3>
-                    <p class="price">Rs:2900</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Mirha Abaya with stoller', 2900, this)">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -1277,108 +1323,114 @@
                     <img src="images/sleep4.jpg" alt="Sleepwear Banner 4">
                 </div>
             </div>
-            <div class="products">
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/silk1.jpg" alt="Anmol Hello Sunshine Sleepwear 1">
-                            <img src="images/silk2.jpg" alt="Anmol Hello Sunshine Sleepwear 2">
-                            <img src="images/silk3.jpg" alt="Anmol Hello Sunshine Sleepwear 3">
+            <div class="products-container">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/silk1.jpg" alt="Anmol Hello Sunshine Sleepwear 1">
+                                <img src="images/silk2.jpg" alt="Anmol Hello Sunshine Sleepwear 2">
+                                <img src="images/silk3.jpg" alt="Anmol Hello Sunshine Sleepwear 3">
+                            </div>
                         </div>
+                        <h3>Anmol Hello Sunshine Sleepwear</h3>
+                        <p class="price">Rs:1299</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol Hello Sunshine Sleepwear', 1299, this)">Buy Now</button>
                     </div>
-                    <h3>Anmol Hello Sunshine Sleepwear</h3>
-                    <p class="price">Rs:1299</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/night1.jpg" alt="Anmol Love Sleep wear 1">
+                                <img src="images/night2.jpg" alt="Anmol Love Sleep wear 2">
+                                <img src="images/night3.jpg" alt="Anmol Love Sleep wear 3">
+                            </div>
+                        </div>
+                        <h3>Anmol Love Sleep wear</h3>
+                        <p class="price">Rs:1299</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol Love Sleep wear', 1299, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Anmol Hello Sunshine Sleepwear', 1299, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/night1.jpg" alt="Anmol Love Sleep wear 1">
-                            <img src="images/night2.jpg" alt="Anmol Love Sleep wear 2">
-                            <img src="images/night3.jpg" alt="Anmol Love Sleep wear 3">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/wear1.jpg" alt="Anmol Black Heart Sleep Wear 1">
+                                <img src="images/wear2.jpg" alt="Anmol Black Heart Sleep Wear 2">
+                                <img src="images/wear3.jpg" alt="Anmol Black Heart Sleep Wear 3">
+                            </div>
                         </div>
+                        <h3>Anmol Black Heart Sleep Wear</h3>
+                        <p class="price">Rs:1299</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol Black Heart Sleep Wear', 1299, this)">Buy Now</button>
                     </div>
-                    <h3>Anmol Love Sleep wear</h3>
-                    <p class="price">Rs:1299</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/1wear1.jpg" alt="Anmol Lining sleep wear 1">
+                                <img src="images/1wear2.jpg" alt="Anmol Lining sleep wear 2">
+                                <img src="images/1wear3.jpg" alt="Anmol Lining sleep wear 3">
+                            </div>
+                        </div>
+                        <h3>Anmol Lining sleep wear</h3>
+                        <p class="price">Rs:1299</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
+                        </div>
+                        <button onclick="showOrderModal('Anmol Lining sleep wear', 1299, this)">Buy Now</button>
                     </div>
-                    <button onclick="showOrderModal('Anmol Love Sleep wear', 1299, this)">Buy Now</button>
                 </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/wear1.jpg" alt="Anmol Black Heart Sleep Wear 1">
-                            <img src="images/wear2.jpg" alt="Anmol Black Heart Sleep Wear 2">
-                            <img src="images/wear3.jpg" alt="Anmol Black Heart Sleep Wear 3">
+                <div class="product-pair">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/2wear1.jpg" alt="Anmol Sweet Heart Sleep wear 1">
+                                <img src="images/2wear2.jpg" alt="Anmol Sweet Heart Sleep wear 2">
+                                <img src="images/2wear3.jpg" alt="Anmol Sweet Heart Sleep wear 3">
+                            </div>
                         </div>
-                    </div>
-                    <h3>Anmol Black Heart Sleep Wear</h3>
-                    <p class="price">Rs:1299</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol Black Heart Sleep Wear', 1299, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="∆slider-images">
-                            <img src="images/1wear1.jpg" alt="Anmol Lining sleep wear 1">
-                            <img src="images/1wear2.jpg" alt="Anmol Lining sleep wear 2">
-                            <img src="images/1wear3.jpg" alt="Anmol Lining sleep wear 3">
+                        <h3>Anmol Sweet Heart Sleep wear</h3>
+                        <p class="price">Rs:1299</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
                         </div>
+                        <button onclick="showOrderModal('Anmol Sweet Heart Sleep wear', 1299, this)">Buy Now</button>
                     </div>
-                    <h3>Anmol Lining sleep wear</h3>
-                    <p class="price">Rs:1299</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol Lining sleep wear', 1299, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/2wear1.jpg" alt="Anmol Sweet Heart Sleep wear 1">
-                            <img src="images/2wear2.jpg" alt="Anmol Sweet Heart Sleep wear 2">
-                            <img src="images/2wear3.jpg" alt="Anmol Sweet Heart Sleep wear 3">
+                    <div class="product">
+                        <div class="product-slider" onclick="showProductGalleryModal(this)">
+                            <div class="slider-images">
+                                <img src="images/short1.jpg" alt="Anmol Lining Sleep Wear Short 1">
+                                <img src="images/short2.jpg" alt="Anmol Lining Sleep Wear Short 2">
+                                <img src="images/short3.jpg" alt="Anmol Lining Sleep Wear Short 3">
+                            </div>
                         </div>
-                    </div>
-                    <h3>Anmol Sweet Heart Sleep wear</h3>
-                    <p class="price">Rs:1299</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol Sweet Heart Sleep wear', 1299, this)">Buy Now</button>
-                </div>
-                <div class="product">
-                    <div class="product-slider" onclick="showProductGalleryModal(this)">
-                        <div class="slider-images">
-                            <img src="images/short1.jpg" alt="Anmol Lining Sleep Wear Short 1">
-                            <img src="images/short2.jpg" alt="Anmol Lining Sleep Wear Short 2">
-                            <img src="images/short3.jpg" alt="Anmol Lining Sleep Wear Short 3">
+                        <h3>Anmol Lining Sleep Wear Short</h3>
+                        <p class="price">Rs:1299</p>
+                        <div class="size-options">
+                            <span data-size="S">S</span>
+                            <span data-size="M">M</span>
+                            <span data-size="L">L</span>
                         </div>
+                        <button onclick="showOrderModal('Anmol Lining Sleep Wear Short', 1299, this)">Buy Now</button>
                     </div>
-                    <h3>Anmol Lining Sleep Wear Short</h3>
-                    <p class="price">Rs:1299</p>
-                    <div class="size-options">
-                        <span data-size="S">S</span>
-                        <span data-size="M">M</span>
-                        <span data-size="L">L</span>
-                    </div>
-                    <button onclick="showOrderModal('Anmol Lining Sleep Wear Short', 1299, this)">Buy Now</button>
                 </div>
             </div>
         </div>
